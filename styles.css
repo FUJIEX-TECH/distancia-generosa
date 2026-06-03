@@ -483,18 +483,57 @@ h3, .h3 { font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(1
    ═══════════════════════════════════════════════════ */
 .btn {
   display:inline-flex; align-items:center; gap:var(--space-2);
-  padding: 11px 22px;
-  border-radius: var(--radius-sm);
+  padding: 11px 24px;
+  border-radius: 100px;
   font-family:'Inter',sans-serif; font-weight:500; font-size:14px; line-height:1;
-  transition: opacity .2s ease, transform .2s ease, background .2s ease;
+  letter-spacing: .01em;
+  transition: background .2s ease, border-color .2s ease, color .2s ease, transform .15s ease;
   white-space: nowrap;
 }
-.btn:hover  { opacity:.88; }
-.btn:active { transform:scale(.98); }
-.btn-primary   { background:var(--bronze); color:var(--marfim); }
-.btn-secondary { background:transparent; color:var(--areia); border:1.5px solid var(--areia); }
-.btn-outline   { background:transparent; color:var(--cobre); border:1.5px solid rgba(140,115,85,.4); }
-.btn-lg        { padding:14px 28px; font-size:15px; }
+.btn:active { transform: scale(.98); }
+
+/* Primário — bronze com texto branco */
+.btn-primary {
+  background: var(--bronze);
+  color: #FFFFFF;
+  border: 1.5px solid var(--bronze);
+}
+.btn-primary:hover { background: #5A4235; border-color: #5A4235; }
+
+/* Secundário — outline bronze no hero (fundo escuro) */
+.btn-secondary {
+  background: transparent;
+  color: #FFFFFF;
+  border: 1.5px solid rgba(255,255,255,.55);
+}
+.btn-secondary:hover { border-color: #FFFFFF; background: rgba(255,255,255,.08); }
+
+/* Outline — para uso em fundo claro */
+.btn-outline {
+  background: transparent;
+  color: var(--bronze);
+  border: 1.5px solid var(--bronze);
+}
+.btn-outline:hover { background: var(--bronze); color: #FFFFFF; }
+
+.btn-lg { padding: 14px 30px; font-size: 15px; }
+
+/* ── Card image header */
+.card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* ── Section image */
+.section-img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
 
 /* ── ═══════════════════════════════════════════════════
    CARDS
@@ -744,53 +783,28 @@ h3, .h3 { font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(1
   margin-bottom: 14px;
 }
 
-.nav-float-items { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+.nav-float-items { list-style: none; display: flex; flex-direction: column; gap: 0; }
 
 .nav-float-item {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 6px 0;
+  border-bottom: 1px solid #f0ede8;
 }
-
-.nf-thumb {
-  width: 76px;
-  height: 52px;
-  border-radius: 10px;
-  flex-shrink: 0;
-  overflow: hidden;
-  position: relative;
-}
-
-/* Icon overlay inside thumbnails */
-.nf-thumb::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,.08);
-  border-radius: inherit;
-}
-
-/* Thumbnail gradients per section */
-.nft-home      { background: linear-gradient(135deg, #2A1F16 0%, #8C7355 100%); }
-.nft-sobre     { background: linear-gradient(135deg, #1C1410 0%, #6B5140 100%); }
-.nft-empresa   { background: linear-gradient(135deg, #0F0A06 0%, #4A3528 100%); }
-.nft-motorista { background: linear-gradient(135deg, #2A1F16 0%, #C4A882 100%); }
-.nft-frotas    { background: linear-gradient(135deg, #0F0A06 0%, #3A2E24 100%); }
-.nft-contactos { background: linear-gradient(135deg, #2A1F16 0%, #8C7355 80%); }
+.nav-float-item:last-child { border-bottom: none; }
 
 .nav-float-item a {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 500;
-  font-size: 22px;
+  font-size: 15px;
   line-height: 1;
   color: #1C1410;
   text-decoration: none;
-  letter-spacing: -.02em;
+  letter-spacing: -.01em;
+  padding: 14px 0;
+  width: 100%;
   transition: color .2s ease;
-  white-space: nowrap;
 }
-.nav-float-item.active a { color: var(--bronze); }
+.nav-float-item.active a { color: var(--bronze); font-weight: 600; }
 .nav-float-item a:hover  { color: var(--bronze); }
 
 /* Inner drawer padding */

@@ -51,7 +51,6 @@ document.querySelectorAll('[data-wa]').forEach(el => {
         <ul class="nav-float-items">
           ${pages.map(p => `
             <li class="nav-float-item${p.href === pg ? ' active' : ''}">
-              <div class="nf-thumb nft-${p.thumb}"></div>
               <a href="${p.href}">${p.label}</a>
             </li>`).join('')}
         </ul>
