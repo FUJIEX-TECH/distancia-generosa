@@ -3,6 +3,15 @@
 const WA_NUMBER  = '351910000000'; // ← substitua pelo número real
 const WA_MESSAGE = encodeURIComponent('Olá! Gostaria de saber mais sobre a Distância Generosa.');
 
+// ── Scroll hint → próxima secção ───────────────────────────────
+const scrollHint = document.querySelector('.scroll-hint');
+if (scrollHint) {
+  scrollHint.addEventListener('click', () => {
+    const next = document.querySelector('.hero + *') || document.querySelector('.stats-band');
+    if (next) next.scrollIntoView({ behavior: 'smooth' });
+  });
+}
+
 // ── WhatsApp links ──────────────────────────────────────────────
 document.querySelectorAll('[data-wa]').forEach(el => {
   el.href   = `https://wa.me/${WA_NUMBER}?text=${WA_MESSAGE}`;
