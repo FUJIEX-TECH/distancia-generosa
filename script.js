@@ -21,17 +21,22 @@ document.querySelectorAll('[data-wa]').forEach(el => {
 
 // ── Floating Pill Nav — waabi.ai style (mobile) ─────────────────
 (function initFloatNav() {
-  const pages = [
-    { href: 'index.html',       label: 'Home',            name: 'Home',           thumb: 'home' },
-    { href: 'sobre.html',       label: 'Quem Somos',      name: 'Quem Somos',     thumb: 'sobre' },
-    { href: 'empresa-tvde.html',label: 'Empresa TVDE',    name: 'Empresa TVDE',   thumb: 'empresa' },
-    { href: 'motorista.html',   label: 'Seja Motorista',  name: 'Motoristas',     thumb: 'motorista' },
-    { href: 'frotas.html',      label: 'Gestão de Frotas',name: 'Frotas',         thumb: 'frotas' },
-    { href: 'contactos.html',   label: 'Contactos',       name: 'Contactos',      thumb: 'contactos' },
+  const main = [
+    { href: 'index.html',  label: 'Home',       name: 'Home' },
+    { href: 'sobre.html',  label: 'Quem Somos', name: 'Quem Somos' },
   ];
+  const services = [
+    { href: 'empresa-tvde.html', label: 'Sua Empresa TVDE', name: 'Empresa TVDE' },
+    { href: 'motorista.html',    label: 'Seja Motorista',   name: 'Motoristas' },
+    { href: 'frotas.html',       label: 'Gestão de Frotas', name: 'Frotas' },
+  ];
+  const end = [
+    { href: 'contactos.html', label: 'Contactos', name: 'Contactos' },
+  ];
+  const all = [...main, ...services, ...end];
 
-  const pg    = location.pathname.split('/').pop() || 'index.html';
-  const curr  = pages.find(p => p.href === pg) || pages[0];
+  const pg   = location.pathname.split('/').pop() || 'index.html';
+  const curr = all.find(p => p.href === pg) || all[0];
 
   const float = document.createElement('div');
   float.className = 'nav-float';
@@ -49,7 +54,20 @@ document.querySelectorAll('[data-wa]').forEach(el => {
       <div class="nav-float-inner">
         <p class="nav-float-label">Menu</p>
         <ul class="nav-float-items">
-          ${pages.map(p => `
+          ${main.map(p => `
+            <li class="nav-float-item${p.href === pg ? ' active' : ''}">
+              <a href="${p.href}">${p.label}</a>
+            </li>`).join('')}
+        </ul>
+        <p class="nav-float-label" style="margin-top:16px">Serviços</p>
+        <ul class="nav-float-items">
+          ${services.map(p => `
+            <li class="nav-float-item${p.href === pg ? ' active' : ''}">
+              <a href="${p.href}">${p.label}</a>
+            </li>`).join('')}
+        </ul>
+        <ul class="nav-float-items" style="margin-top:8px">
+          ${end.map(p => `
             <li class="nav-float-item${p.href === pg ? ' active' : ''}">
               <a href="${p.href}">${p.label}</a>
             </li>`).join('')}
@@ -67,7 +85,30 @@ document.querySelectorAll('[data-wa]').forEach(el => {
   });
 })();
 
-// ── Desktop mobile nav (legacy, hidden on mobile by CSS) ────────
+// ── Active nav link ─────────────────────────────────────────────
+const page = location.pathname.split('/').pop() || 'index.html';
+document.querySelectorAll('.nav-links a, .nav-mobile a').forEach(a => {
+  if (a.getAttribute('href') === page) a.classList.add('active');
+});
+
+// ── Dropdown Serviços ───────────────────────────────────────────
+(function initDropdown() {
+  const dropdown = document.querySelector('.nav-dropdown');
+  if (!dropdown) return;
+  const trigger = dropdown.querySelector('.nav-dropdown-trigger');
+
+  trigger.addEventListener('click', e => {
+    e.stopPropagation();
+    dropdown.classList.toggle('open');
+  });
+  document.addEventListener('click', () => dropdown.classList.remove('open'));
+  dropdown.querySelector('.nav-mega').addEventListener('click', e => e.stopPropagation());
+
+  const servicePages = ['empresa-tvde.html', 'motorista.html', 'frotas.html'];
+  if (servicePages.includes(page)) trigger.classList.add('active');
+})();
+
+// ── Desktop mobile nav ──────────────────────────────────────────
 const hamburger = document.querySelector('.nav-hamburger');
 const mobileNav = document.querySelector('.nav-mobile');
 if (hamburger && mobileNav) {
@@ -80,12 +121,6 @@ if (hamburger && mobileNav) {
     mobileNav.classList.remove('open');
   }));
 }
-
-// ── Active nav link ─────────────────────────────────────────────
-const page = location.pathname.split('/').pop() || 'index.html';
-document.querySelectorAll('.nav-links a, .nav-mobile a').forEach(a => {
-  if (a.getAttribute('href') === page) a.classList.add('active');
-});
 
 // ── Split text → animated words ─────────────────────────────────
 function splitWords(el) {

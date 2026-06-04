@@ -6,25 +6,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="description" content="Abertura de empresa TVDE em Portugal. Criamos a sua empresa, tratamos do licenciamento IMT e ativamos nas plataformas Uber e Bolt."/>
   <link rel="icon" href="assets/DG-Logo-ver.png"/>
-  <link rel="stylesheet" href="styles.css?v=4"/>
+  <link rel="stylesheet" href="styles.css?v=16"/>
 </head>
 <body>
 
 <!-- ── Navigation ── -->
 <nav class="nav">
   <div class="nav-inner">
-    <a class="nav-logo" href="index.html"><img src="assets/DG-Logo-hor.png" alt="Distância Generosa"/></a>
+    <a class="nav-logo" href="index.html">
+      <img src="assets/DG-Logo-hor.png" alt="Distância Generosa"/>
+    </a>
     <ul class="nav-links">
       <li><a href="sobre.html">Quem Somos</a></li>
-      <li><a href="empresa-tvde.html">Sua Empresa TVDE</a></li>
-      <li><a href="motorista.html">Seja Motorista</a></li>
-      <li><a href="frotas.html">Gestão de Frotas</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-trigger">Serviços <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4 4-4"/></svg></button>
+        <div class="nav-mega">
+          <a href="empresa-tvde.html" class="nav-mega-card">
+            <span class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V5a2 2 0 012-2h10a2 2 0 012 2v16M9 21v-4a2 2 0 012-2h2a2 2 0 012 2v4M3 21h18"/></svg></span>
+            <div class="nav-mega-text">
+              <span class="nav-mega-title">Sua Empresa TVDE</span>
+              <span class="nav-mega-desc">Abertura e legalização</span>
+            </div>
+          </a>
+          <a href="motorista.html" class="nav-mega-card">
+            <span class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3v-5l2-5h14l2 5v5h-2M5 17a2 2 0 104 0 2 2 0 00-4 0zm10 0a2 2 0 104 0 2 2 0 00-4 0z"/></svg></span>
+            <div class="nav-mega-text">
+              <span class="nav-mega-title">Seja Motorista</span>
+              <span class="nav-mega-desc">Integração e formação</span>
+            </div>
+          </a>
+          <a href="frotas.html" class="nav-mega-card">
+            <span class="nav-mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></span>
+            <div class="nav-mega-text">
+              <span class="nav-mega-title">Gestão de Frotas</span>
+              <span class="nav-mega-desc">Controlo e optimização</span>
+            </div>
+          </a>
+        </div>
+      </li>
       <li><a href="contactos.html">Contactos</a></li>
     </ul>
     <a class="nav-pill" href="contactos.html">Começar</a>
-    <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
 <ul class="nav-mobile">
   <li><a href="sobre.html">Quem Somos</a></li>
   <li><a href="empresa-tvde.html">Sua Empresa TVDE</a></li>
@@ -38,9 +66,9 @@
 <section class="page-hero">
   <div class="container">
     <p class="eyebrow anim-fade-up">Sua Empresa TVDE</p>
-    <h1 class="display page-hero-title" style="margin-top:var(--space-4)" data-split>Abra a Sua Empresa TVDE Sem Burocracias.</h1>
+    <h1 class="display page-hero-title" data-split>Abra a Sua Empresa TVDE Sem Burocracias.</h1>
     <p class="page-hero-sub">Criamos a sua empresa, tratamos do licenciamento junto do IMT e ativamos as suas contas nas plataformas. Entregamos o seu negócio pronto a faturar.</p>
-    <div style="margin-top:var(--space-8)">
+    <div class="page-hero-actions">
       <a href="#" class="btn btn-primary btn-lg" data-wa>Quero Abrir a Minha Empresa</a>
     </div>
   </div>
@@ -49,31 +77,33 @@
 <!-- ── Problem / Solution ── -->
 <section class="section border-top">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-16);align-items:center" class="reveal">
+    <div class="col-2 reveal">
       <div>
-        <img src="assets/sections/business.jpg" alt="Abertura de empresa TVDE" class="section-img" style="margin-bottom:var(--space-8)"/>
+        <img src="assets/sections/business.jpg" alt="Abertura de empresa TVDE" class="section-img"/>
+      </div>
+      <div>
         <p class="eyebrow" style="margin-bottom:var(--space-5)">O Problema</p>
         <h2 class="h2" style="color:var(--marfim);margin-bottom:var(--space-6)">Esqueça as Complicações do IMT e da Legislação. Nós Tratamos de Tudo.</h2>
         <p class="body-text">Abrir uma empresa TVDE em Portugal exige passar por um processo burocrático complexo de licenciamento e enquadramento fiscal. Na Distância Generosa, assumimos toda essa responsabilidade por si.</p>
         <p class="body-text" style="margin-top:var(--space-5)">Eliminamos os erros e os atrasos, entregando o seu negócio 100% legalizado e pronto a faturar no menor tempo possível.</p>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
-        <div class="card-metric" style="padding:var(--space-6);display:flex;flex-direction:column;gap:var(--space-3)">
-          <div style="font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:500;color:var(--areia);line-height:1">100%</div>
-          <p class="body-sm">Conformidade legal garantida</p>
-        </div>
-        <div class="card-metric" style="padding:var(--space-6);display:flex;flex-direction:column;gap:var(--space-3)">
-          <div style="font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:500;color:var(--areia);line-height:1">4</div>
-          <p class="body-sm">Passos para começar a operar</p>
-        </div>
-        <div class="card-metric" style="padding:var(--space-6);display:flex;flex-direction:column;gap:var(--space-3)">
-          <div style="font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:500;color:var(--areia);line-height:1">0</div>
-          <p class="body-sm">Surpresas ou taxas ocultas</p>
-        </div>
-        <div class="card-metric" style="padding:var(--space-6);display:flex;flex-direction:column;gap:var(--space-3)">
-          <div style="font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:500;color:var(--areia);line-height:1">2+</div>
-          <p class="body-sm">Plataformas ativadas (Uber & Bolt)</p>
-        </div>
+    </div>
+    <div class="metrics-row reveal">
+      <div class="card-metric">
+        <div class="metric-num">100%</div>
+        <p class="body-sm">Conformidade legal garantida</p>
+      </div>
+      <div class="card-metric">
+        <div class="metric-num">4</div>
+        <p class="body-sm">Passos para começar a operar</p>
+      </div>
+      <div class="card-metric">
+        <div class="metric-num">0</div>
+        <p class="body-sm">Surpresas ou taxas ocultas</p>
+      </div>
+      <div class="card-metric">
+        <div class="metric-num">2+</div>
+        <p class="body-sm">Plataformas ativadas (Uber & Bolt)</p>
       </div>
     </div>
   </div>
@@ -177,7 +207,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 Distância Generosa · TVDE Car Service · Todos os direitos reservados.</p>
+      <p>© 2026 Distância Generosa · TVDE Car Service · Todos os direitos reservados.</p>
       <p class="caption">Licenciado pelo IMT</p>
     </div>
   </div>
