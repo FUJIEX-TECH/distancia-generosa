@@ -799,10 +799,19 @@ h3, .h3 { font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(1
   border: none;
 }
 
+.nav-float-logo {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background: rgba(10, 6, 3, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 12px;
+  border: 0.5px solid rgba(196, 168, 130, .15);
+}
 .nav-float-logo img {
-  height: 28px;
+  height: 26px;
   width: auto;
-  filter: drop-shadow(0 1px 4px rgba(0,0,0,.4));
 }
 
 .nav-float-current { display: none; }

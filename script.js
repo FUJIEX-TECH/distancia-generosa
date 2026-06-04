@@ -43,7 +43,7 @@ document.querySelectorAll('[data-wa]').forEach(el => {
   float.innerHTML = `
     <div class="nav-float-header">
       <a href="index.html" class="nav-float-logo">
-        <img src="assets/DG-Logo-hor-3.png" alt="Distância Generosa" id="nfLogoImg"/>
+        <img src="assets/DG-Logo-hor-2.png" alt="Distância Generosa" id="nfLogoImg"/>
       </a>
       <span class="nav-float-current">${curr.name}</span>
       <button class="nav-float-btn" id="nfBtn" aria-label="Menu">
@@ -70,13 +70,6 @@ document.querySelectorAll('[data-wa]').forEach(el => {
     a.addEventListener('click', () => float.classList.remove('open'));
   });
 
-  // Trocar logo conforme fundo da página
-  const darkPages = ['index.html', ''];
-  const isDark = darkPages.includes(pg);
-  const logoImg = document.getElementById('nfLogoImg');
-  if (!isDark && logoImg) {
-    logoImg.src = 'assets/DG-Logo-hor-2-PB.png';
-  }
 })();
 
 // ── Active nav link ─────────────────────────────────────────────
