@@ -174,7 +174,6 @@ h3, .h3 { font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(1
   height: 26px;
   width: auto;
   opacity: .9;
-  filter: brightness(0) invert(1);
   transition: opacity .2s ease;
 }
 .nav-logo:hover img { opacity: 1; }
@@ -221,15 +220,6 @@ h3, .h3 { font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(1
 .nav-dropdown.open .nav-dropdown-trigger svg { transform: rotate(180deg); }
 .nav-dropdown-trigger:hover { color: rgba(245, 239, 232, 0.95); }
 .nav-dropdown-trigger.active { color: rgba(245, 239, 232, 0.95); }
-.nav-dropdown-trigger.active::after {
-  content: '';
-  position: absolute;
-  bottom: -5px; left: 50%;
-  transform: translateX(-50%);
-  width: 3px; height: 3px;
-  border-radius: 50%;
-  background: var(--areia);
-}
 .nav-mega {
   display: none;
   flex-direction: column;
