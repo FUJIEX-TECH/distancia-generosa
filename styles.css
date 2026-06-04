@@ -932,8 +932,22 @@ h3, .h3 { font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(1
   .footer-bottom { flex-direction:column; gap:var(--space-3); text-align:center; }
   .cta-block { padding:var(--space-8) var(--space-6); }
   .stats-inner { grid-template-columns:repeat(2,1fr); }
-  .section-img { height: 240px; }
+  .section-img { height: 220px; }
   .page-hero-img { height: 200px; }
+
+  /* Page hero mobile */
+  .page-hero .container { text-align: left; }
+  .page-hero-title { max-width:100%; margin-inline:0; }
+  .page-hero-sub { max-width:100%; margin:var(--space-4) 0 0; font-size:16px; }
+  .page-hero-actions { justify-content:flex-start; }
+
+  /* Section header mobile */
+  .section-header { text-align:left; align-items:flex-start; }
+  .section-sub { text-align:left; }
+
+  /* Cards mobile */
+  .card-metric { padding:var(--space-4); }
+  .metric-num { font-size:32px; }
 }
 
 @media (max-width: 480px) {
