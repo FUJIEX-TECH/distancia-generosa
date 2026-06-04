@@ -43,7 +43,7 @@ document.querySelectorAll('[data-wa]').forEach(el => {
   float.innerHTML = `
     <div class="nav-float-header">
       <a href="index.html" class="nav-float-logo">
-        <img src="assets/DG-Logo-hor.png" alt="Distância Generosa"/>
+        <img src="assets/DG-Logo-hor-3.png" alt="Distância Generosa"/>
       </a>
       <span class="nav-float-current">${curr.name}</span>
       <button class="nav-float-btn" id="nfBtn" aria-label="Menu">
