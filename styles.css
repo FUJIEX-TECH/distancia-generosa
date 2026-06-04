@@ -841,22 +841,28 @@ h3, .h3 { font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(1
 .nav-float.open .nf-icon span:last-child  { transform: translateY(-3.25px) rotate(-45deg); }
 
 .nav-float-drawer {
+  position: absolute;
+  top: calc(100% - 4px);
+  right: 12px;
+  width: 220px;
   max-height: 0;
   overflow: hidden;
-  transition: max-height .42s cubic-bezier(0.16, 1, 0.3, 1), opacity .3s ease;
+  transition: max-height .35s cubic-bezier(0.16, 1, 0.3, 1), opacity .25s ease;
   background: rgba(10, 6, 3, 0.97);
-  border-radius: 16px;
-  border: 0.5px solid rgba(196, 168, 130, .12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 14px;
+  border: 0.5px solid rgba(196, 168, 130, .15);
+  box-shadow: 0 8px 32px rgba(0,0,0,.4);
   opacity: 0;
-  margin: 4px 12px 0;
 }
 .nav-float.open .nav-float-drawer {
-  max-height: 72vh;
+  max-height: 80vh;
   overflow-y: auto;
   opacity: 1;
 }
 
-.nav-float-inner { padding: 20px 22px 24px; }
+.nav-float-inner { padding: 14px 16px 16px; }
 
 .nav-float-label {
   font-size: 10px;
