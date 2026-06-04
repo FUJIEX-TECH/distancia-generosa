@@ -922,16 +922,18 @@ h3, .h3 { font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(1
 .page-hero { padding-top: calc(80px + var(--space-12)); }
 
 @media (max-width: 768px) {
-  :root { --space-24:64px; --space-16:48px; --space-12:36px; }
+  :root { --space-24:44px; --space-16:32px; --space-12:24px; }
 
   .hero-content-wrap { max-width:100%; }
   .grid-3, .grid-2, .col-2, .pillars { grid-template-columns:1fr; }
-  .metrics-row { grid-template-columns:1fr 1fr; gap:var(--space-4); margin-top:var(--space-8); }
+  .metrics-row { grid-template-columns:1fr 1fr; gap:var(--space-4); margin-top:var(--space-6); }
   .form-row { grid-template-columns:1fr; }
-  .footer-grid { grid-template-columns:1fr; gap:var(--space-8); }
+  .footer-grid { grid-template-columns:1fr; gap:var(--space-6); }
   .footer-bottom { flex-direction:column; gap:var(--space-3); text-align:center; }
-  .cta-block { padding:var(--space-12) var(--space-6); }
+  .cta-block { padding:var(--space-8) var(--space-6); }
   .stats-inner { grid-template-columns:repeat(2,1fr); }
+  .section-img { height: 240px; }
+  .page-hero-img { height: 200px; }
 }
 
 @media (max-width: 480px) {
