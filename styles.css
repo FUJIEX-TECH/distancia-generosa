@@ -171,7 +171,7 @@ h3, .h3 { font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(1
 /* Logo */
 .nav-logo { flex-shrink: 0; }
 .nav-logo img {
-  height: 26px;
+  height: 38px;
   width: auto;
   opacity: .9;
   transition: opacity .2s ease;
