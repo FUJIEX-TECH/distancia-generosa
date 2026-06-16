@@ -676,6 +676,21 @@ h3, .h3 { font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(1
 .split-card:hover { border-color:var(--bronze); transform:translateY(-3px); box-shadow:0 18px 40px rgba(0,0,0,.06); }
 .split-link { margin-top:var(--space-6); color:var(--bronze); font-weight:500; font-size:14px; letter-spacing:.01em; }
 
+/* 2-column layout that stacks on mobile (top-aligned) */
+.split-grid { display:grid; grid-template-columns:1fr 1fr; gap:var(--space-16); align-items:start; }
+.about-aside { display:flex; flex-direction:column; gap:var(--space-6); }
+@media (max-width:768px) {
+  .split-grid { grid-template-columns:1fr; gap:var(--space-8); }
+}
+
+/* Contactos: canais + formulário (empilha no mobile) */
+.contact-grid { display:grid; grid-template-columns:1fr 1.4fr; gap:var(--space-16); align-items:start; }
+@media (max-width:768px) { .contact-grid { grid-template-columns:1fr; gap:var(--space-12); } }
+
+/* Centered subtitle on desktop, left on mobile (matches header pattern) */
+.sub-center { text-align:center; }
+@media (max-width:768px) { .sub-center { text-align:left; } }
+
 /* Brand sign-off (logo + slogan) */
 .brand-signoff { margin-top:var(--space-12); }
 .brand-signoff img { height:78px; width:auto; }
@@ -806,6 +821,10 @@ h3, .h3 { font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(1
 .footer-social svg { width:20px; height:20px; display:block; }
 .footer-bottom { display:flex; align-items:center; justify-content:space-between; padding-top:var(--space-6); border-top:0.5px solid rgba(255,255,255,.08); }
 .footer-bottom p { font-size:14px; color:#666; }
+@media (max-width:768px) {
+  .footer-bottom .cr-sep { display:none; }
+  .footer-bottom .cr-rights { display:block; }
+}
 
 /* ── WhatsApp float ─────────────────────────────────────────────── */
 .wa-float {
