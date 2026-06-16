@@ -1,6 +1,6 @@
 /* ── Distância Generosa · Animation Engine ──────────────────────── */
 
-const WA_NUMBER  = '351910000000'; // ← substitua pelo número real
+const WA_NUMBER  = '351934264651'; // +351 934 264 651
 const WA_MESSAGE = encodeURIComponent('Olá! Gostaria de saber mais sobre a Distância Generosa.');
 
 // ── Scroll hint → próxima secção ───────────────────────────────
@@ -26,9 +26,10 @@ document.querySelectorAll('[data-wa]').forEach(el => {
     { href: 'sobre.html',  label: 'Quem Somos', name: 'Quem Somos' },
   ];
   const services = [
-    { href: 'empresa-tvde.html', label: 'Sua Empresa TVDE', name: 'Empresa TVDE' },
-    { href: 'motorista.html',    label: 'Seja Motorista',   name: 'Motoristas' },
-    { href: 'frotas.html',       label: 'Gestão de Frotas', name: 'Frotas' },
+    { href: 'transfer.html',     label: 'Transfers & Tours',       name: 'Transfers & Tours' },
+    { href: 'motorista.html',    label: 'Conduza Connosco · Slot', name: 'Conduza Connosco' },
+    { href: 'frotas.html',       label: 'Gestão de Frotas',        name: 'Frotas' },
+    { href: 'empresa-tvde.html', label: 'Abrir Empresa TVDE',      name: 'Empresa TVDE' },
   ];
   const end = [
     { href: 'contactos.html', label: 'Contactos', name: 'Contactos' },
@@ -91,7 +92,7 @@ document.querySelectorAll('.nav-links a, .nav-mobile a').forEach(a => {
   document.addEventListener('click', () => dropdown.classList.remove('open'));
   dropdown.querySelector('.nav-mega').addEventListener('click', e => e.stopPropagation());
 
-  const servicePages = ['empresa-tvde.html', 'motorista.html', 'frotas.html'];
+  const servicePages = ['empresa-tvde.html', 'motorista.html', 'frotas.html', 'transfer.html'];
   if (servicePages.includes(page)) trigger.classList.add('active');
 })();
 
@@ -158,16 +159,20 @@ function heroEntrance() {
     if (el) setTimeout(() => el.classList.add('in-view'), delay);
   });
 
-  // Fade in hero video once it can play
+  // Fade in hero video once it can render — robust across browsers
   const video = document.querySelector('.hero-video');
   if (video) {
-    const onCanPlay = () => {
-      video.classList.add('loaded');
-      video.removeEventListener('canplaythrough', onCanPlay);
-    };
-    video.addEventListener('canplaythrough', onCanPlay);
-    // If already ready
-    if (video.readyState >= 3) video.classList.add('loaded');
+    const show = () => video.classList.add('loaded');
+    ['loadeddata', 'canplay', 'canplaythrough', 'playing'].forEach(ev =>
+      video.addEventListener(ev, show)
+    );
+    // Already has a frame? Show now.
+    if (video.readyState >= 2) show();
+    // Nudge autoplay (some browsers need an explicit play call)
+    const p = video.play();
+    if (p && p.catch) p.catch(() => {});
+    // Safety net: reveal anyway after 2.5s so it never stays hidden
+    setTimeout(show, 2500);
   }
 }
 
@@ -245,13 +250,29 @@ const cntIo = new IntersectionObserver(entries => {
 }, { threshold: 0.6 });
 document.querySelectorAll('[data-count]').forEach(el => cntIo.observe(el));
 
-// ── Form feedback ───────────────────────────────────────────────
+// ── Form submission → WhatsApp ──────────────────────────────────
+// Ao submeter, abre o WhatsApp já preenchido com os dados do formulário.
+const FORM_SKIP = new Set(['subject', 'from_name', 'botcheck', 'access_key']);
+
 document.querySelectorAll('form[data-form]').forEach(form => {
   form.addEventListener('submit', e => {
     e.preventDefault();
-    const btn = form.querySelector('[type="submit"]');
+    if (!form.reportValidity()) return;
+
+    const lines = [];
+    new FormData(form).forEach((val, key) => {
+      if (!FORM_SKIP.has(key) && String(val).trim()) lines.push(`${key}: ${val}`);
+    });
+
+    const subjectEl = form.querySelector('[name="subject"]');
+    const header = subjectEl && subjectEl.value ? subjectEl.value : 'Novo contacto pelo site';
+    const text = encodeURIComponent(`${header}\n\n${lines.join('\n')}`);
+
+    window.open(`https://wa.me/${WA_NUMBER}?text=${text}`, '_blank', 'noopener');
+
+    const btn  = form.querySelector('[type="submit"]');
     const orig = btn.textContent;
-    btn.textContent = 'Enviado!';
+    btn.textContent = 'A abrir o WhatsApp...';
     btn.disabled = true;
     setTimeout(() => { btn.textContent = orig; btn.disabled = false; form.reset(); }, 3000);
   });
