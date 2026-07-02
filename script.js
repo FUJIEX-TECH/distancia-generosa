@@ -277,3 +277,18 @@ document.querySelectorAll('form[data-form]').forEach(form => {
     setTimeout(() => { btn.textContent = orig; btn.disabled = false; form.reset(); }, 3000);
   });
 });
+
+// ── FAQ Accordion ────────────────────────────────────────────────
+document.querySelectorAll('.faq-trigger').forEach(trigger => {
+  trigger.addEventListener('click', () => {
+    const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+    document.querySelectorAll('.faq-trigger').forEach(t => {
+      t.setAttribute('aria-expanded', 'false');
+      t.closest('.faq-item').querySelector('.faq-body').classList.remove('open');
+    });
+    if (!isOpen) {
+      trigger.setAttribute('aria-expanded', 'true');
+      trigger.closest('.faq-item').querySelector('.faq-body').classList.add('open');
+    }
+  });
+});
