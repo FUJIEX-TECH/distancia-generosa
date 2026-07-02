@@ -1014,6 +1014,9 @@ h3, .h3 { font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(1
   cursor: pointer;
   transition: color .2s ease;
 }
+.faq-trigger span {
+  text-wrap: balance;
+}
 .faq-trigger:hover { color: var(--bronze); }
 .faq-trigger[aria-expanded="true"] { color: var(--bronze); }
 .faq-chevron {
@@ -1042,6 +1045,7 @@ h3, .h3 { font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(1
   color: var(--champagne);
   font-size: 15px;
   line-height: 1.75;
+  text-wrap: pretty;
 }
 
 /* Mobile: hide traditional nav, floating nav takes over */
