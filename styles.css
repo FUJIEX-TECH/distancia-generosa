@@ -320,6 +320,8 @@ h3, .h3 { font-family: 'Inter', sans-serif; font-weight: 500; font-size: clamp(1
 .nav-mobile {
   display:none; flex-direction:column;
   position:fixed; top:var(--nav-h); inset-inline:0;
+  max-height: calc(100dvh - var(--nav-h));
+  overflow-y: auto;
   background: rgba(10,6,3,0.97);
   backdrop-filter: blur(22px);
   -webkit-backdrop-filter: blur(22px);
