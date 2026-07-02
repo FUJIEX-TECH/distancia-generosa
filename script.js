@@ -32,7 +32,8 @@ document.querySelectorAll('[data-wa]').forEach(el => {
     { href: 'empresa-tvde.html', label: 'Abrir Empresa TVDE',      name: 'Empresa TVDE' },
   ];
   const end = [
-    { href: 'contactos.html', label: 'Contactos', name: 'Contactos' },
+    { href: 'faq.html',       label: 'Perguntas Frequentes', name: 'FAQ' },
+    { href: 'contactos.html', label: 'Contactos',            name: 'Contactos' },
   ];
   const all = [...main, ...services, ...end];
 
