@@ -2,10 +2,11 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "distancia-generosa",
+      "name": "static",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "3457"],
-      "port": 3457
+      "runtimeArgs": ["-m", "http.server", "3000"],
+      "cwd": "/Users/leco/distancia-generosa",
+      "port": 3000
     }
   ]
 }
